@@ -166,7 +166,7 @@ export const AttractionForm = () => {
                   <FormLabel>Attraction ID</FormLabel>
                   <FormControl>
                     <Input 
-                      placeholder="e.g., taj-mahal, red-fort" 
+                      placeholder="e.g., botanical-gardens, ooty-lake" 
                       {...field} 
                       disabled={mode === 'edit'}
                     />
@@ -198,20 +198,6 @@ export const AttractionForm = () => {
                   <FormLabel>Image URL</FormLabel>
                   <FormControl>
                     <Input placeholder="https://example.com/image.jpg" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-            
-            <FormField
-              control={form.control}
-              name="location"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Location</FormLabel>
-                  <FormControl>
-                    <Input placeholder="Address or location details" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -254,6 +240,20 @@ export const AttractionForm = () => {
                   <FormLabel>Best Time to Visit</FormLabel>
                   <FormControl>
                     <Input placeholder="e.g., Morning, Evening" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+            
+            <FormField
+              control={form.control}
+              name="location"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Location</FormLabel>
+                  <FormControl>
+                    <Input placeholder="Address or location details" {...field} />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -310,18 +310,7 @@ export const AttractionForm = () => {
                 variant="outline" 
                 onClick={() => {
                   setMode('add');
-                  form.reset({
-                    ...form.getValues(),
-                    id: "",
-                    name: "",
-                    description: "",
-                    image: "",
-                    entryFee: 0,
-                    openingHours: "",
-                    bestTimeToVisit: "",
-                    location: "",
-                    rating: 4,
-                  });
+                  form.reset();
                 }}
               >
                 Cancel
